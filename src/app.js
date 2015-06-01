@@ -38,9 +38,8 @@ function Remote(){
     this.alert = function(){
         if (this._notified) return;
 
-        playSound();
-        tray.icon = "failed.png";
         this._notified = true;
+        playSound();
 
         new Notification("Server error !", {
             id : this.id,
@@ -79,8 +78,6 @@ function Remote(){
             self.refreshView();
         };
 
-        console.log(post_options);
-        console.log(JSON.stringify(self.data));
         var req = h.request(post_options, function(res){
             if (res.statusCode < 300) {
                 onSuccess();
