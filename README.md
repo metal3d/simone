@@ -24,6 +24,7 @@ Prepare a json form configuration file:
     "remotes" : [
         {
             "name" : "Name for the service",
+            "interval" : 15000, // in milisecond
             "host" : "hostname.tld",
             "ssl"  : false,
             "path" : "uri/path"
