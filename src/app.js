@@ -2,6 +2,7 @@ var fs = require("fs"),
     http = require("http"),
     https = require("https"),
     querystring = require('querystring'),
+    path = require('path'),
     gui = require('nw.gui');
 
 var REMOTES = [];
@@ -57,7 +58,7 @@ function Remote(){
             port: (self.ssl) ? 443 : 80,
             path: self.path,
             method: 'POST',
-            headers: self.headers
+            headers: self.headers || {}
         };
 
         post_options.headers['Accept'] = "application/json";
@@ -127,8 +128,10 @@ function playSound(){
 }
 
 function init(){
-    fs.readFile('conf.json', 'utf8', function (err, data) {
-            if (err) throw err; // we'll not consider error handling for now
+    fs.readFile(process.execPath.substr(0,process.execPath.lastIndexOf(path.sep)) + path.sep + 'conf.json', 'utf8', function (err, data) {
+            if (err){
+                throw err; 
+            }
             var json = JSON.parse(data);
             for (var j=0, len = json.remotes.length; j<len; j++) {
                 json.remotes[j].id = "remote-"+(j+1);
@@ -143,6 +146,7 @@ function init(){
                 r.data     = json.remotes[j].data || null;
 
                 REMOTES.push(r);
+                r.refreshView();
                 setInterval(r.test.bind(r), r.interval);
                 r.test();
             }
