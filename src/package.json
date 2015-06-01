@@ -1,0 +1,11 @@
+{
+    "name" : "Simone",
+    "version": "0.1",
+    "main" : "index.html",
+    "window" : {
+        "toolbar": false,
+        "frame": true,
+        "width" : 480
+    },
+    "chromium-args" : "--disable-setuid-sandbox --ignore-urlfetcher-cert-requests"
+}
