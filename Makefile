@@ -21,7 +21,7 @@ prepare: clean
 	sed -i "s/@VERSION/$(VERSION)/" src/package.json
 
 pack:
-	cd src && zip ../simone.nw ./*
+	cd src && zip -r ../simone.nw *.html *.js *.wav *.css *.png *.json ./ace/src-min-noconflict
 
 linux:
 	cat $(NWLINUX)/nw ./simone.nw > build/linux/simone
