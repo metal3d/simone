@@ -5,6 +5,8 @@ Simone is a simple cross-platform tool that monitors some web endpoints and aler
 ## About the name
 
 "Simone" is my grand-mother firstname, and it's (in french) an old firstname that have a comic consonance. It's a acronyme for "SIMple MONitor Experience".
+The last "E" signification was found by [Jonathan Dray](http://www.spicymoka.org/)
+
 
 ## How to use it
 
