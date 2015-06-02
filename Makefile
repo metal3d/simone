@@ -6,9 +6,13 @@ build: prepare pack linux windows
 clean:
 	rm -rf build dist simone.nw
 
+prepare-dev:
+	sed 's/@TOOLBAR/true/' package-tpl.json > src/package.json
+
 prepare: clean
 	mkdir -p build/linux
 	mkdir -p build/windows
+	sed 's/@TOOLBAR/false/' package-tpl.json > src/package.json
 
 pack:
 	cd src && zip ../simone.nw ./*
@@ -37,4 +41,4 @@ dist:
 	zip -r simone-v0.1.zip simone && \
 	rm -rf simone
 	mv build/*.tgz build/*.zip dist/
-	mv simone.nw build
+	mv simone.nw dist

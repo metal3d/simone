@@ -3,7 +3,7 @@
     "version": "0.1",
     "main" : "index.html",
     "window" : {
-        "toolbar": true,
+        "toolbar": @TOOLBAR,
         "frame": true,
         "width" : 480
     },
