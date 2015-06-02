@@ -1,6 +1,6 @@
 NWWIN=~/Apps/nw-win/
 NWLINUX=~/Apps/nw
-VERSION=`cat VERSION`
+VERSION:=$(shell cat VERSION)
 
 build: prepare pack linux windows
 	
@@ -40,11 +40,11 @@ dist:
 	mkdir dist
 	cd build/ && \
 	cp -r linux simone && \
-	tar cfz simone-v0.1.tgz simone && \
+	tar cfz simone-v$(VERSION).tgz simone && \
 	rm -rf simone
 	cd build && \
 	cp -r windows simone && \
-	zip -r simone-v0.1.zip simone && \
+	zip -r simone-v$(VERSION).zip simone && \
 	rm -rf simone
 	mv build/*.tgz build/*.zip dist/
-	mv simone.nw dist
+	mv simone.nw dist/simone-v$(VERSION).nw
