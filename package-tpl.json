@@ -1,6 +1,6 @@
 {
     "name" : "Simone",
-    "version": "0.1",
+    "version": "@VERSION",
     "main" : "index.html",
     "window" : {
         "toolbar": @TOOLBAR,

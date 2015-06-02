@@ -17,7 +17,8 @@ If you decided to use "simone.nw" file, you may:
 
 ## Configuration
 
-Prepare a json form configuration file:
+Go to the config view then write json configuration:
+
 
 ```json
 {
@@ -38,5 +39,30 @@ Prepare a json form configuration file:
     ]
 }
 ```
+
+Each remote can have those properties:
+
+- name: name of the service (title on the main view)
+- host: hostname to hit
+- port: port to connect (default 80 is ssl is false, either 443)
+- path: path to the resource
+- headers: object that handles headers to set
+- data: json data to send
+- ssl: activate SSL connection (default false)
+- inteval: in milisecond, the interval between 2 tests (default 30000 for 30s)
+- method: GET, POST, PUT, and so on... (default: GET)
+
+To ease configuration, you can omit host, port, ssl, and path by using "url" property.
+
+For example, setting "url" to "https://test.com:8585/path" will set 
+
+- ssl:true
+- port:8585
+- path: /path
+- host: test.com
+
+
+
+
 
 
