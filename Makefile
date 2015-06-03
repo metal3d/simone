@@ -36,15 +36,15 @@ windows:
 	cp $(NWWIN)/*.dat build/windows
 	cp $(NWWIN)/*.dll build/windows
 
-dist:
+dist: prepare
 	mkdir dist
 	cd build/ && \
 	cp -r linux simone && \
-	tar cfz simone-v$(VERSION).tgz simone && \
+	tar cfz simone-linux-x64-v$(VERSION).tgz simone && \
 	rm -rf simone
 	cd build && \
 	cp -r windows simone && \
-	zip -r simone-v$(VERSION).zip simone && \
+	zip -r simone-windows-x64-v$(VERSION).zip simone && \
 	rm -rf simone
 	mv build/*.tgz build/*.zip dist/
 	mv simone.nw dist/simone-v$(VERSION).nw
