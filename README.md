@@ -27,7 +27,7 @@ Go to the config view then write json configuration:
     "remotes" : [
         {
             "name" : "Name for the service",
-            "interval" : 15000, // in milisecond
+            "interval" : 15000, 
             "host" : "hostname.tld",
             "ssl"  : false,
             "path" : "uri/path"
@@ -36,7 +36,7 @@ Go to the config view then write json configuration:
                 "for" : "data"
             }
         }, {
-            // other services...
+            "name" : "other services..."
         }
     ]
 }
