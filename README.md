@@ -30,7 +30,7 @@ Go to the config view then write json configuration:
             "interval" : 15000, 
             "host" : "hostname.tld",
             "ssl"  : false,
-            "path" : "uri/path"
+            "path" : "uri/path",
             "data" : {
                 "json" : "form",
                 "for" : "data"
