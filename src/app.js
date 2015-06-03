@@ -87,14 +87,12 @@ function Remote(){
         };
 
         var onError = function(){
-            tray.icon = "failed.png";
             this.alert(); 
             this.state = "down";
             this.refreshView();
         };
 
         var onSuccess = function(){
-            tray.icon = "green.png";
             this._notified = false; // reset notification
             this.state = "up";
             this.refreshView();
@@ -206,5 +204,19 @@ function init(){
         setInterval(r.test.bind(r), r.interval);
         r.test();
     }
+    setInterval(function(){
+        var failed = false;
+        for (var k=0, l=REMOTES.length; k<l; k++){
+            var r = REMOTES[k];
+            if (r.state == "down") {
+                failed = true;
+            }
+        }
+        if (failed) {
+            tray.icon = "failed.png";
+        } else {
+            tray.icon = "green.png";
+        }
+    },200);
 }
 
